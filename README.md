@@ -1,17 +1,15 @@
-# BaklavaOS - Custom ROM Arşivi
+# # BaklavaOS - Custom ROM Arşivi
+Mustafa tarafından modifiye edilen resmi Samsung ROM ve Tablet projeleri.
+## 📱 Projelerimiz & Tüm Sürücü (Driver) İndirme Linkleri
+"Hak etmeyen de benim adaletimi bulur." — Mustafa Uçıran
+Mobil cihazları bilgisayarsız, tamamen telefondan modifiye ederek canlandırdığımız tüm güncel BaklavaOS yazılımları ve indirme bağlantıları aşağıda listelenmiştir:
 
-Mustafa Uçıran tarafından modifiye edilen resmi Samsung ROM ve Tablet projeleri.
+| Cihaz Adı | Model Kodu | BaklavaOS Sürümü | Durum & Özellikler | İndirme Bağlantısı (Drive) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Samsung Galaxy Tab S 10.5** | `SM-T800` | Tablet Edition (Android 13) | **Hazır!** Aurora Store yükleme dosyasına (`install/data/app`) ZArchiver ile telefondan gömüldü. | [⬇️ ROM'u İndir](https://drive.google.com/file/d/1TUCVgFZoYZHLdc29-rHxu5sv6KGXsS-D/view?usp=drivesdk) |
+| **Samsung Galaxy A3 (2017)** | `SM-A320F` | One UI 1.1 | **Kararlı.** Sistem temizlendi. Aurora Store `/system/app` içine kalıcı eklendi. | [⬇️ Sürücü / Driver İndir](#) |
+| **Samsung Galaxy S3** | `GT-I9300` | BaklavaOS Classic | **Kararlı.** Bilgisayarsız ilk başarı projesi. Kurulum anında Aurora Store otomatik aktif olur. | [⬇️ Sürücü / Driver İndir](#) |
+| **Diğer Telefonlar & Sürücüler** | `Tüm Modeller` | BaklavaOS Tüm Cihazlar | Diğer telefon tamirleri ve sistem modifikasyonları için gerekli olan tüm ham dosyalar. | [⬇️ Driver Klasörüne Git](#) |
 
-## 📱 Projelerimiz:
-
-### 1. Samsung Galaxy A3 (2017) - One UI 1.1
-* **Özellikler:** Sistem temizlendi. Aurora Store, `system/app` içine kalıcı olarak gömüldü.
-* **İndirme Linki:** [Galaxy A3 ROM İndir](https://drive.google.com/file/d/1sYENXNeXpvxz4pm3KiO2cM0Mv0CL0L7n/view?usp=drivesdk)
-
-### 2. Samsung Galaxy S3 (i9300) - LineageOS 16.0
-* **Özellikler:** Aurora Store, `data/app` yöntemiyle eklendi.
-* **İndirme Linki:** [Galaxy S3 ROM İndir](https://drive.google.com/file/d/1LmWVYWH3Bb6ksIbSBGiITu_oB1_hr8z2/view?usp=drivesdk)
-
-### 3. Samsung Galaxy Tab S 10.5 (SM-T800)
-* **Durum:** Yakında! Android 6'nın sınırlarını aşıp tableti canlandıracak BaklavaOS Tablet Edition çok yakında burada olacak.
-* 
+---
+*Bu arşiv Mustafa tarafından ZArchiver kullanılarak telefonda modifiye edilmiş ve güncellenmiştir.*
