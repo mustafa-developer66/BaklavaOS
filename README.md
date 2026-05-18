@@ -16,6 +16,5 @@
 ---
 ```diff
 + 🟦 Bu
-# 🟨 azimli
-- 🟥 Custom ROM
+- 🟥 Custom ROM'lar
 @@ 🟩 geliştirilecektir. @@
