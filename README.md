@@ -1,7 +1,4 @@
 # 🇹🇷 ✨ 🎉 19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramımız Kutlu Olsun! 🎉 ✨ 🇹🇷
-<p align="center">
-  <img src="http://googleusercontent.com/image_collection/image_retrieval/12339330126149362037" alt="Mustafa Kemal Atatürk" width="300" style="border-radius: 12px; border: 2px solid #ff4500; box-shadow: 0px 4px 15px rgba(255, 69, 0, 0.5);"/>
-</p>
 ---
 # 🛠️ ⚡ Geliştirici Paneli & Resmi Custom ROM Arşivi ⚡ 🛠️
 > 🌟 *"Hak etmeyen de benim adaletimi bulur."* — **Mustafa** 🌟
