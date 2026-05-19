@@ -13,6 +13,6 @@
 
 ---
 ```diff
-+ 🟦 Bu projeler
-- 🟥 Custom ROM'lar ile
++ 🟦 Bu
+- 🟥 Custom ROM'lar
 @@ 🟩 geliştirilecektir. @@
