@@ -1,5 +1,4 @@
-# 🇹🇷 ✨ 🎉 19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramımız Kutlu Olsun! 🎉 ✨ 🇹🇷
----
+
 # 🛠️ ⚡ Geliştirici Paneli & Resmi Custom ROM Arşivi ⚡ 🛠️
 > 🌟 *"Hak etmeyen de benim adaletimi bulur."* — **Mustafa** 🌟
 🚀 Telefondan ve bilgisayarsız olarak bizzat modifiye ettiğim, optimize edilmiş tüm güncel projelerim ve indirme bağlantıları aşağıda listelenmiştir: 🚀
