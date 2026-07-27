@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaklavaOS - Geleceğin İşletim Sistemi</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            background-color: #02040a; 
+            color: #f8fafc; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            overflow-x: hidden; 
+            position: relative; 
+        }
+
+        /* Arka Plan Renk Aura Işıkları */
+        .color-aura-1 {
+            position: absolute; top: -80px; left: 10%; width: 450px; height: 450px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.35) 0%, rgba(2, 4, 10, 0) 70%);
+            filter: blur(60px); pointer-events: none; z-index: 0;
+        }
+
+        .color-aura-2 {
+            position: absolute; top: 250px; right: 5%; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, rgba(2, 4, 10, 0) 70%);
+            filter: blur(70px); pointer-events: none; z-index: 0;
+        }
+
+        .container { width: 100%; max-width: 950px; padding: 24px; z-index: 1; display: flex; flex-direction: column; align-items: center; }
+
+        /* Üst Menü - Cam Efekti (Glassmorphism) */
+        header { 
+            width: 100%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 14px 22px; 
+            margin-bottom: 35px; 
+            background: rgba(15, 23, 42, 0.55) !important;
+            backdrop-filter: blur(20px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 28px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-brand { display: flex; align-items: center; gap: 12px; }
+        .nav-logo-img { width: 40px; height: 40px; border-radius: 14px; object-fit: cover; box-shadow: 0 0 15px rgba(14, 165, 233, 0.5); }
+        .nav-logo-text { font-size: 22px; font-weight: 800; }
+        
+        .text-light-blue { color: #e0f2fe; }
+        .text-blue { color: #38bdf8; }
+
+        .nav-links { display: flex; gap: 6px; background: rgba(2, 6, 23, 0.6); padding: 5px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .nav-btn { background: transparent; color: #94a3b8; border: none; padding: 8px 18px; border-radius: 16px; font-weight: 600; font-size: 13.5px; cursor: pointer; transition: 0.3s; }
+        .nav-btn.active { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); color: #ffffff; box-shadow: 0 0 15px rgba(2, 132, 199, 0.5); }
+
+        .version-tag { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; cursor: pointer; }
+
+        /* Sekme İçerikleri */
+        .tab-content { display: none; width: 100%; flex-direction: column; align-items: center; }
+        .tab-content.active { display: flex; }
+
+        /* Hero */
+        .hero { text-align: center; margin-bottom: 35px; display: flex; flex-direction: column; align-items: center; }
+        .hero-logo-img { width: 135px; height: 135px; margin-bottom: 20px; border-radius: 32px; filter: drop-shadow(0 0 30px rgba(14, 165, 233, 0.5)); }
+        .main-title { font-size: 50px; font-weight: 900; margin-bottom: 10px; background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { font-size: 15px; color: #94a3b8; max-width: 580px; line-height: 1.6; }
+
+        /* Terminal - Cam Efekti */
+        .terminal-box { 
+            width: 100%; max-width: 700px; 
+            background: rgba(10, 15, 28, 0.6) !important; 
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 24px; overflow: hidden; margin-bottom: 35px; text-align: left; 
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+        }
+        .terminal-header { background: rgba(15, 22, 38, 0.8); padding: 12px 18px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .dot { width: 11px; height: 11px; border-radius: 50%; }
+        .dot-red { background-color: #ff5f56; } .dot-yellow { background-color: #ffbd2e; } .dot-green { background-color: #27c93f; }
+        .terminal-title { color: #64748b; font-size: 12px; font-family: monospace; margin-left: 8px; }
+        .terminal-body { padding: 20px; font-family: monospace; font-size: 13.5px; line-height: 1.8; color: #cbd5e1; }
+        .cmd { color: #38bdf8; } .success { color: #27c93f; } .warning { color: #f59e0b; }
+
+        /* Cam Kartlar */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; width: 100%; margin-bottom: 35px; }
+        .card { 
+            background: rgba(15, 23, 42, 0.5) !important; 
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+            border-radius: 26px; padding: 26px; cursor: pointer; transition: all 0.3s ease;
+        }
+        .card:hover { border-color: rgba(56, 189, 248, 0.4); transform: translateY(-5px); background: rgba(20, 30, 55, 0.6) !important; }
+        .card-icon { font-size: 30px; margin-bottom: 14px; }
+        .card-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .card-desc { font-size: 13.5px; color: #94a3b8; line-height: 1.5; }
+
+        /* Diğer Sayfalar */
+        .rom-box, .about-box { 
+            background: rgba(15, 23, 42, 0.5) !important; 
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 28px; padding: 40px 30px; text-align: center; max-width: 680px; width: 100%; 
+        }
+        .rom-status-badge { background: rgba(245, 158, 11, 0.15); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.3); padding: 8px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; display: inline-block; margin-bottom: 18px; }
+        .btn-disabled { background: rgba(30, 41, 59, 0.8); color: #64748b; border: 1px solid rgba(255,255,255,0.05); padding: 14px 30px; font-size: 14px; font-weight: 700; border-radius: 18px; cursor: not-allowed; margin-top: 18px; }
+
+        .about-title { font-size: 24px; font-weight: 800; color: #38bdf8; margin-bottom: 15px; text-align: left; }
+        .about-text { color: #94a3b8; font-size: 14.5px; line-height: 1.8; margin-bottom: 20px; text-align: left; }
+        .feature-list { list-style: none; padding: 0; text-align: left; }
+        .feature-list li { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 14px 18px; margin-bottom: 10px; color: #e2e8f0; font-size: 13.5px; }
+
+        footer { color: #475569; font-size: 12.5px; margin-top: 30px; margin-bottom: 20px; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="color-aura-1"></div>
+    <div class="color-aura-2"></div>
+
+    <div class="container">
+        <header>
+            <div class="nav-brand">
+                <img src="logo.png" alt="BaklavaOS Logo" class="nav-logo-img">
+                <div class="nav-logo-text"><span class="text-light-blue">Baklava</span><span class="text-blue">OS</span></div>
+            </div>
+
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="switchTab('home', this)">Ana Sayfa</button>
+                <button class="nav-btn" onclick="switchTab('roms', this)">ROM'lar</button>
+                <button class="nav-btn" onclick="switchTab('about', this)">Hakkımızda</button>
+            </div>
+
+            <div class="version-tag">v1.0-alpha</div>
+        </header>
+
+        <!-- 1. ANA SAYFA -->
+        <main id="home" class="tab-content active">
+            <section class="hero">
+                <img src="logo.png" alt="BaklavaOS Hero Logo" class="hero-logo-img">
+                <h1 class="main-title">BaklavaOS</h1>
+                <p class="subtitle">Sınırsız performans, üstün güvenlik ve akışkan renkli mimari ile hazırlanan <b>Geleceğin İşletim Sistemi</b>.</p>
+            </section>
+
+            <div class="terminal-box">
+                <div class="terminal-header">
+                    <div class="dot dot-red"></div><div class="dot dot-yellow"></div><div class="dot dot-green"></div>
+                    <span class="terminal-title">baklavaos-core-init.log</span>
+                </div>
+                <div class="terminal-body">
+                    <div><span class="cmd">$ baklavaos --init-system</span></div>
+                    <div><span class="success">[SUCCESS]</span> Çekirdek modülleri başarıyla yüklendi.</div>
+                    <div><span class="warning">[INFO]</span> Grafik hızlandırma ve cam efektleri aktif edildi.</div>
+                    <div>&gt; BaklavaOS resmi lansman için hazırlıklarını tamamlıyor!</div>
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3 class="card-title">Ultra Hızlı Çekirdek</h3>
+                    <p class="card-desc">Maksimum donanım verimliliği ve sıfır gecikme için optimize edilmiş özel mimari.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3 class="card-title">Gelişmiş Güvenlik</h3>
+                    <p class="card-desc">Korumalı bellek yönetimi ve izolasyon protokolleri ile tam güvenlik.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3 class="card-title">Akıcı Arayüz</h3>
+                    <p class="card-desc">Göz yormayan, şık ve son teknoloji kullanıcı deneyimi.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- 2. İNDİR / ROM'LAR -->
+        <main id="roms" class="tab-content">
+            <div class="rom-box">
+                <div class="rom-status-badge">🚀 Yakında Yayınlanıyor</div>
+                <h2 style="font-size: 26px; margin-bottom: 12px; font-weight: 800;">BaklavaOS Resmi ROM Paketi</h2>
+                <p style="color: #94a3b8; line-height: 1.6; font-size: 14.5px;">Özel Custom ROM paketlerimiz şu anda cihaz uyumluluk ve stabilite testlerinden geçmektedir. İlk kararlı sürüm yayınlandığında bu ekrandan doğrudan erişebileceksiniz.</p>
+                <br>
+                <button class="btn-disabled">İndirme Bağlantıları Hazırlanıyor</button>
+            </div>
+        </main>
+
+        <!-- 3. HAKKIMIZDA -->
+        <main id="about" class="tab-content">
+            <div class="about-box">
+                <h2 class="about-title">BaklavaOS Proje Vizyonu</h2>
+                <p class="about-text">BaklavaOS; eskiyen mobil cihazlara yeni bir soluk getirmek, sistem kaynaklarını en verimli biçimde kullanarak kullanıcıya son derece akıcı, renkli ve modern bir deneyim sunmak amacıyla geliştirilen bağımsız bir sistem projesidir.</p>
+                
+                <ul class="feature-list">
+                    <li>🚀 <strong>Eski Telefonlara Hayat Verin:</strong> Düşük donanımlarda bile maksimum performans ve hız.</li>
+                    <li>✨ <strong>Cam Mimarisi:</strong> Yumuşak hatlı, ışık yansımalı ve göz alıcı arayüz tasarımı.</li>
+                    <li>🔒 <strong>Tam Gizlilik:</strong> Arka planda veri toplayan gereksiz servislerden tamamen arındırılmış yapı.</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer>© 2026 BaklavaOS Projesi. Tüm Hakları Saklıdır.</footer>
+    </div>
+
+    <script>
+        function switchTab(tabId, element) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
