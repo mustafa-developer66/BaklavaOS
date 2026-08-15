@@ -1,12 +1,15 @@
 <div align="center">
 
+<!-- Logo Alanı (İleride kendi logonun linkini koyabilirsin) -->
+<img src="https://raw.githubusercontent.com/twitter/twemoji/master/assets/svg/1f369.svg" width="120" alt="BaklavaOS Logo" />
+
 # BaklavaOS
 
-**Geleceğin Akıcı ve Modern Android Deneyimi**
+**Geleceğin Akıcı, Modern ve Yüksek Performanslı Android Deneyimi**
 
-[![Status](https://img.shields.io/badge/Status-Under_Development-orange.svg)](#)
-[![Target](https://img.shields.io/badge/Release_Target-2027--2028-brightgreen.svg)](#)
-[![License](https://img.shields.io/badge/License-GPL--3.0-blue.svg)](#)
+[![Status](https://img.shields.io/badge/Status-Geliştirme_Aşamasında-orange.svg)](#)
+[![Target Release](https://img.shields.io/badge/Yayın_Hedefi-2027_--_2029-brightgreen.svg)](#)
+[![License](https://img.shields.io/badge/Lisans-GPL--3.0-blue.svg)](#)
 
 ---
 
@@ -16,30 +19,7 @@ BaklavaOS; hızı, sadeliği ve üst düzey görsel akıcılığı odağına ala
 
 ## 🌟 Öne Çıkan Özellikler
 
-* **Ultra Modern Arayüz:** Minimalist, göz yormayan ve çağı yakalayan modern tasarım dili.
+* **Ultra Modern Arayüz:** Minimalist, göz yormayan ve çağı yakalayan özel tasarım dili.
 * **Maksimum Akıcılık:** Düşük gecikme süresi, pürüzsüz animasyonlar ve optimize edilmiş kaynak kullanımı.
-* **Gelişmiş Performans:** Arka plan süreçlerinde yüksek verimlilik ve pil dostu mimari.
 
----
-
-## 🗓️ Proje Takvimi & İndirme Bilgisi
-
-BaklavaOS şu anda aktif geliştirme aşamasındadır. İlk kararlı ROM derlemelerinin ve indirme bağlantılarının yayınlanması planlanmaktadır:
-
-> 🚀 **İndirilebilir Derlemeler:** **2027 - 2028** yılları arasında duyurulacak ve indirmeye sunulacaktır.
-
----
-
-## 📱 Termux Üzerinden Hazırlık & Kurulum
-
-Geliştirici ortamı veya yerel testler için Termux üzerinden hızlı başlangıç:
-
-```bash
-# Depoyu klonlayın
-git clone [https://github.com/kullanici-adi/BaklavaOS.git](https://github.com/kullanici-adi/BaklavaOS.git)
-
-# Proje dizinine geçin
-cd BaklavaOS
-
-# Bağımlılıkları kontrol edin
-pkg update && pkg upgrade -y
+* 2026 BaklavaOS Projesi | Açık Kaynaklı Proje
